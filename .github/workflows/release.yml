@@ -1,0 +1,55 @@
+name: Release Module
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set version from tag
+        id: version
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          VERSION="${TAG#v}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Update module.json version and download URL
+        run: |
+          jq \
+            --arg v "${{ steps.version.outputs.version }}" \
+            --arg dl "https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.tag }}/module.zip" \
+            '.version = $v | .download = $dl' \
+            module.json > module.json.tmp && mv module.json.tmp module.json
+
+      - name: Create module.zip
+        run: |
+          zip -r module.zip \
+            module.json \
+            custom-browser-tab.js \
+            lang/ \
+            LICENSE
+
+      - name: Upload release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "${{ steps.version.outputs.tag }}" \
+            module.json \
+            module.zip \
+            --clobber
+
+      - name: Publish to FoundryVTT
+        uses: Varriount/fvtt-autopublish@v2.0.2
+        with:
+          username: ${{ secrets.FOUNDRY_ADMIN_USERNAME }}
+          password: ${{ secrets.FOUNDRY_ADMIN_PASSWORD }}
+          module-id: ${{ secrets.FOUNDRY_ADMIN_MODULE_ID }}
+          manifest-url: https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.tag }}/module.json
+          manifest-file: module.json

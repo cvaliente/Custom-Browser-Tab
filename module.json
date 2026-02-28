@@ -1,0 +1,39 @@
+{
+    "id": "custom-browser-tab",
+    "title": "Custom Browser Tab",
+    "description": "Customize your Foundry VTT browser tab title, favicon, and logo icon.",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Handyfon"
+        },
+        {
+            "name": "Vinícius Watzl"
+        },
+        {
+            "name": "Clemens",
+            "url": "https://github.com/cvaliente/Custom-Browser-Tab"
+        }
+    ],
+    "compatibility": {
+        "minimum": "13",
+        "verified": "13"
+    },
+    "esmodules": [
+        "custom-browser-tab.js"
+    ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        },
+        {
+            "lang": "de",
+            "name": "Deutsch",
+            "path": "lang/de.json"
+        }
+    ],
+    "manifest": "https://github.com/cvaliente/Custom-Browser-Tab/releases/latest/download/module.json",
+    "download": "https://github.com/cvaliente/Custom-Browser-Tab/releases/latest/download/module.zip"
+}

@@ -1,0 +1,14 @@
+{
+    "CUSTOM_BROWSER_TAB.Settings.Title.Name": "Seitentitel",
+    "CUSTOM_BROWSER_TAB.Settings.Title.Hint": "Der Name, der im Browser-Tab angezeigt wird.",
+    "CUSTOM_BROWSER_TAB.Settings.PageAsTitle.Name": "Aktive Szene als Seitentitel",
+    "CUSTOM_BROWSER_TAB.Settings.PageAsTitle.Hint": "Optional den Namen der aktiven Szene im Browser-Tab anzeigen.",
+    "CUSTOM_BROWSER_TAB.Settings.PageAsTitle.No": "Nein",
+    "CUSTOM_BROWSER_TAB.Settings.PageAsTitle.AsTitle": "Als Titel",
+    "CUSTOM_BROWSER_TAB.Settings.PageAsTitle.BeforeTitle": "Vor dem Titel",
+    "CUSTOM_BROWSER_TAB.Settings.PageAsTitle.AfterTitle": "Nach dem Titel",
+    "CUSTOM_BROWSER_TAB.Settings.Icon.Name": "Favicon",
+    "CUSTOM_BROWSER_TAB.Settings.Icon.Hint": "Das Symbol, das im Browser-Tab angezeigt wird.",
+    "CUSTOM_BROWSER_TAB.Settings.AnvilIcon.Name": "Logo-Symbol",
+    "CUSTOM_BROWSER_TAB.Settings.AnvilIcon.Hint": "Ein Bild, das das Foundry-Amboss-Logo ersetzt."
+}
